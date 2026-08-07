@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+
+# Docker
+*.log
+
+# Linux
+*.swp
+
+# OS files
+.DS_Store
+
+# Terraform
+.terraform/
+
+# Temporary files
+*.tmp
