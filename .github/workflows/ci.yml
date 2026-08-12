@@ -21,5 +21,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run application
-        run: python hello.py
+      - name: Start application
+        run: |
+          python hello.py > app.log 2>&1 &
+          APP_PID=$!
+          echo "APP_PID=$APP_PID" >> "$GITHUB_ENV"
+          sleep 2
+
+      - name: Test application metrics endpoint
+        run: |
+          curl --fail http://127.0.0.1:8000/metrics
+          echo "Application metrics endpoint is working."
+
+      - name: Stop application
+        if: always()
+        run: |
+          if [ -n "$APP_PID" ]; then
+            kill "$APP_PID" || true
+          fi
+
+      - name: Show application logs
+        if: always()
+        run: cat app.log
