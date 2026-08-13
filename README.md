@@ -22,36 +22,36 @@ monitoring and logging.
 
 ## Architecture
 
-'
+```text
                          GitHub
-                           |
-                           v
+                            |
+                            v
                     GitHub Actions
-                           |
-                           v
-                    Python Application
-                           |
-                           v
-                    Docker Image
-                           |
-                           v
-                         Nomad
-                    ┌──────┴──────┐
-                    v             v
-               Allocation 1   Allocation 2
-                    |             |
-                    └──────┬──────┘
-                           |
-                    /metrics :8000
-                           |
-                           v
+                            |
+                            v
+                   Python Application
+                            |
+                            v
+                      Docker Image
+                            |
+                            v
+                          Nomad
+                     ┌──────┴──────┐
+                     v             v
+                Allocation 1   Allocation 2
+                     |             |
+                     └──────┬──────┘
+                            |
+                     /metrics :8000
+                            |
+                            v
                        Prometheus
-                           |
-                           v
+                            |
+                            v
                          Grafana
 
-         ' 
-  Docker Container Logs
+
+        Docker Container Logs
                   |
                   v
                Promtail
@@ -61,22 +61,26 @@ monitoring and logging.
                   |
                   v
                Grafana
-                 
 
-### Repository Structure <br>
+devops-intern-final/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── scripts/
+│   └── sysinfo.sh
+├── monitoring/
+│   ├── prometheus/
+│   │   └── prometheus.yml
+│   ├── promtail-config.yml
+│   └── loki_setup.txt
+├── nomad/
+│   └── hello.nomad
+├── Dockerfile
+├── hello.py
+├── README.md
+└── .gitignore
 
-.github/workflows/ci.yml     # GitHub Actions CI pipeline <br>
-scripts/sysinfo.sh           # Linux system information script <br>
-hello.py                     # Python application + metrics endpoint <br>
-Dockerfile                   # Application container image <br>
-nomad/hello.nomad            # Nomad service deployment <br>
-monitoring/ <br>
-├── prometheus/prometheus.yml 
-├── promtail-config.yml
-└── loki_setup.txt
-README.md
-
-Workflow
+### Workflow
 
 * Code is managed through Git and GitHub. <br>
 * GitHub Actions automatically runs the application on pushes to main.
