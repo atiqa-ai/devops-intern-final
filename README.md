@@ -118,8 +118,11 @@ nomad job status devops-intern
 
  ### Monitoring <br>
 Prometheus: http://localhost:9090 
-Grafana: http://localhost:3000 <br>
-Loki: http://localhost:3100 <br>
+
+Grafana: http://localhost:3000 
+
+Loki: http://localhost:3100 
+
 ### Outcome
 
 A complete DevOps workflow was implemented covering Git, CI, Docker, Nomad, monitoring, and centralized logging using open-source tools.
