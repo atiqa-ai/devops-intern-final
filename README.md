@@ -61,7 +61,8 @@ monitoring and logging.
                   |
                   v
                Grafana
-
+```
+### Repository Structure <br> 
 devops-intern-final/
 ├── .github/
 │   └── workflows/
