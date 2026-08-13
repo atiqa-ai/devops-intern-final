@@ -63,27 +63,27 @@ monitoring and logging.
                Grafana
                  
 
-### Repository Structure
+### Repository Structure <br>
 
-.github/workflows/ci.yml     # GitHub Actions CI pipeline
-scripts/sysinfo.sh           # Linux system information script
-hello.py                     # Python application + metrics endpoint
-Dockerfile                   # Application container image
-nomad/hello.nomad            # Nomad service deployment
-monitoring/
-├── prometheus/prometheus.yml
+.github/workflows/ci.yml     # GitHub Actions CI pipeline <br>
+scripts/sysinfo.sh           # Linux system information script <br>
+hello.py                     # Python application + metrics endpoint <br>
+Dockerfile                   # Application container image <br>
+nomad/hello.nomad            # Nomad service deployment <br>
+monitoring/ <br>
+├── prometheus/prometheus.yml 
 ├── promtail-config.yml
 └── loki_setup.txt
 README.md
 
 Workflow
 
-* Code is managed through Git and GitHub.
+* Code is managed through Git and GitHub. <br>
 * GitHub Actions automatically runs the application on pushes to main.
-* Docker packages the application into a lightweight container image.
-* Nomad deploys two application allocations using the Docker driver.
+* Docker packages the application into a lightweight container image. 
+* Nomad deploys two application allocations using the Docker driver. 
 * The application exposes Prometheus-compatible metrics on /metrics.
-* Prometheus scrapes both Nomad allocations.
+* Prometheus scrapes both Nomad allocations. 
 * Promtail forwards Docker container logs to Loki.
 * Grafana provides visualization for application metrics and logs.
 
@@ -93,24 +93,25 @@ Workflow
 The complete workflow was tested successfully:
 
 `bash
-nomad node status
-nomad job status devops-intern
-nomad job allocs devops-intern
-docker ps
-curl http://127.0.0.1:<allocation-port>/metrics
 
-Both Nomad allocations were running, metrics were accessible, and the monitoring stack was operational.
+nomad node status <br>
+nomad job status devops-intern <br>
+nomad job allocs devops-intern <br>
+docker ps <br>
+curl http://127.0.0.1:<allocation-port>/metrics <br>
 
-Run
-docker build -t devops-intern:v4 .
-nomad job plan nomad/hello.nomad
-nomad job run nomad/hello.nomad
-nomad job status devops-intern
-Monitoring
-Prometheus: http://localhost:9090
-Grafana: http://localhost:3000
-Loki: http://localhost:3100
-Outcome
+Both Nomad allocations were running, metrics were accessible, and the monitoring stack was operational. <br>
+
+ ### Run <br>
+docker build -t devops-intern:v4 . <br>
+nomad job plan nomad/hello.nomad  <br>
+nomad job run nomad/hello.nomad <br>
+nomad job status devops-intern <br>
+ ### Monitoring <br>
+Prometheus: http://localhost:9090 <br>
+Grafana: http://localhost:3000 <br>
+Loki: http://localhost:3100 <br>
+### Outcome
 
 A complete DevOps workflow was implemented covering Git, CI, Docker, Nomad, monitoring, and centralized logging using open-source tools.
                 
