@@ -25,7 +25,6 @@ Grafana    : http://localhost:3000
 
 Log Flow
 --------
-
 Nomad
   |
   v
@@ -40,7 +39,7 @@ Loki
   v
 Grafana
 
-Promtail forwards logs to:
+* Promtail forwards logs to:
 
 http://loki:3100/loki/api/v1/push
 
@@ -54,7 +53,6 @@ by Nomad.
 
 Verification
 ------------
-
 The project runs two Nomad application allocations. Their Docker logs
 are collected by Promtail and forwarded to Loki, where they can be
 queried through the Loki datasource in Grafana.
@@ -64,4 +62,4 @@ Promtail collects their Docker logs for Loki.
 Monitoring flow:
 
 Nomad -> Docker containers -> Promtail -> Loki -> Grafana
-EOF
+
