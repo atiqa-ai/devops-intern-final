@@ -99,25 +99,25 @@ devops-intern-final/
 The complete workflow was tested successfully:
 
 ```bash
-nomad node status <br>
-nomad job status devops-intern <br>
-nomad job allocs devops-intern <br>
-docker ps <br>
-curl http://127.0.0.1:<allocation-port>/metrics <br>
+nomad node status 
+nomad job status devops-intern 
+nomad job allocs devops-intern 
+docker ps 
+curl http://127.0.0.1:<allocation-port>/metrics 
 ```
 
 Both Nomad allocations were running, metrics were accessible, and the monitoring stack was operational. <br>
 
  ### Run <br>
 ```bash
-docker build -t devops-intern:v4 . <br>
-nomad job plan nomad/hello.nomad  <br>
-nomad job run nomad/hello.nomad <br>
-nomad job status devops-intern <br>
+docker build -t devops-intern:v4 . 
+nomad job plan nomad/hello.nomad 
+nomad job run nomad/hello.nomad 
+nomad job status devops-intern 
 ```
 
  ### Monitoring <br>
-Prometheus: http://localhost:9090 <br>
+Prometheus: http://localhost:9090 
 Grafana: http://localhost:3000 <br>
 Loki: http://localhost:3100 <br>
 ### Outcome
