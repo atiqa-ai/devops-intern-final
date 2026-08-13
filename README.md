@@ -63,6 +63,7 @@ monitoring and logging.
                Grafana
 ```
 ### Repository Structure <br> 
+```text
 devops-intern-final/
 ├── .github/
 │   └── workflows/
@@ -80,7 +81,7 @@ devops-intern-final/
 ├── hello.py
 ├── README.md
 └── .gitignore
-
+```
 ### Workflow
 
 * Code is managed through Git and GitHub. <br>
@@ -97,21 +98,24 @@ devops-intern-final/
 
 The complete workflow was tested successfully:
 
-`bash
-
+```bash
 nomad node status <br>
 nomad job status devops-intern <br>
 nomad job allocs devops-intern <br>
 docker ps <br>
 curl http://127.0.0.1:<allocation-port>/metrics <br>
+```
 
 Both Nomad allocations were running, metrics were accessible, and the monitoring stack was operational. <br>
 
  ### Run <br>
+```bash
 docker build -t devops-intern:v4 . <br>
 nomad job plan nomad/hello.nomad  <br>
 nomad job run nomad/hello.nomad <br>
 nomad job status devops-intern <br>
+```
+
  ### Monitoring <br>
 Prometheus: http://localhost:9090 <br>
 Grafana: http://localhost:3000 <br>
