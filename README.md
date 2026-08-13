@@ -1,4 +1,4 @@
-# DevOps Intern Final — Containerized Application Deployment & Monitoring
+#  Containerized Application Deployment & Monitoring 
 
 ## Project Overview
 
